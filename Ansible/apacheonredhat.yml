@@ -1,0 +1,12 @@
+---
+- hosts: dbservers
+  become: true
+  tasks:
+  - name: Install apache
+    yum:
+      name: httpd
+      state: present
+  - name: service httpd start
+    service:
+      name: httpd
+      state: started
